@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Имя пользователя</th>
+        <th>Полное имя</th>
+        <th>Дата создания</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in data %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.full_name}}</td>
+          <td>{{ user.time_create }}</td>
+          <td>
+            <a href="/ссылка на изменить/">Изменить</a>
+            <br>
+            <a href="/ссылка на удалить/">Удалить</a>
+          </td>
+        </tr>
+    {% endfor%}
+    </tbody>
+    </table>
+       
+</div>
+{% endblock %}
