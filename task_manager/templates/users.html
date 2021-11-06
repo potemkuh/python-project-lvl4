@@ -14,10 +14,10 @@
     <tbody>
     {% for user in data %}
         <tr>
-          <td>{{user.id}}</td>
+          <td>{{user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.full_name}}</td>
-          <td>{{ user.time_create }}</td>
+          <td>{{ user.time_create|date:"d.m.Y H:i" }}</td>
           <td>
             <a href="/ссылка на изменить/">Изменить</a>
             <br>
@@ -26,7 +26,7 @@
         </tr>
     {% endfor%}
     </tbody>
-    </table>
+</table>
        
 </div>
 {% endblock %}
