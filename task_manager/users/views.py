@@ -1,16 +1,17 @@
 from django.http import request
 from django.shortcuts import render
-from task_manager.users.models import Users
+from task_manager.users.models import User
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 
-def list_of_users(request):
-    data = Users.objects.all()
-    return render(request, 'users.html', {'data': data})
+class UsersList(ListView):
+    model = get_user_model()
+    template_name = "users.html"
+    context_object_name = "users"
 
 
 def create(request):

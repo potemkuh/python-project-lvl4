@@ -12,19 +12,17 @@
       </tr>
     </thead>
     <tbody>
-    {% for user in data %}
-        <tr>
-          <td>{{user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.full_name}}</td>
-          <td>{{ user.time_create|date:"d.m.Y H:i" }}</td>
-          <td>
-            <a href="/ссылка на изменить/">Изменить</a>
-            <br>
-            <a href="/ссылка на удалить/">Удалить</a>
-          </td>
-        </tr>
-    {% endfor%}
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.get_full_name }}</td>
+        <td>
+          <a class="p-2 text-dark" href="#">Edit</a>
+          <a class="p-2 text-dark" href="#">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
     </tbody>
 </table>
        

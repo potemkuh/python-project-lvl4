@@ -1,9 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class Users(models.Model):
-    name = models.CharField(max_length=255)
-    full_name = models.CharField(max_length=255)
-    time_create = models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-    return self.name
+class User(AbstractUser):
+    def str(self):
+        return self.get_full_name()
