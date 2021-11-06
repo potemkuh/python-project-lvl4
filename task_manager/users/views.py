@@ -6,3 +6,7 @@ from task_manager.users.models import Users
 def list_of_users(request):
     data = Users.objects.all()
     return render(request, 'users.html', {'data': data})
+
+
+def create(request):
+    return render(request, 'create.html')
