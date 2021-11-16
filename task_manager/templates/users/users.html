@@ -17,9 +17,12 @@
         <td>{{ user.id }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.get_full_name }}</td>
+        <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
+      
         <td>
-          <a class="p-2 text-dark" href="#">Edit</a>
-          <a class="p-2 text-dark" href="#">Delete</a>
+          <a class="p-2 text-dark" href="#">Изменить</a>
+          <br>
+          <a class="p-2 text-dark" href="#">Удалить</a>
         </td>
       </tr>
       {% endfor %}
