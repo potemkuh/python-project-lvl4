@@ -1,9 +1,13 @@
 from django.urls import path
+from django.views.generic.base import TemplateView
 from task_manager.users import views
 
 urlpatterns = [
     #path('', views.list_of_users),
-    path('', views.UsersList.as_view(), name='users'),
+    path('users/', views.UsersList.as_view(), name='users'),
     path('create/', views.CreateUser.as_view(), name='create'),
     path('login/', views.LoginView.as_view(), name='login'),
+    path('', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('users/<int:pk>/edit_user/', views.EditUser.as_view(), name='edit' ),
+    path('users/<int:pk>/delete_user/', views.DelUser.as_view(), name='delete' )
 ]

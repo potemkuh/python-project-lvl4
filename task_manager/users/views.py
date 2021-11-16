@@ -1,13 +1,12 @@
-from django import forms
-from django.http import request
-from django.shortcuts import render
-
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import DeleteView, UpdateView
+
 
 
 class UsersList(ListView):
@@ -41,3 +40,18 @@ class LoginView(LoginView):
 
     def get_success_url(self):
         return reverse('index')
+
+class EditUser(LoginRequiredMixin, UpdateView):
+    model = get_user_model()
+    template_name = 'users/edit_user.html'
+    form_class = UserForm
+
+    def get_success_url(self):
+        return reverse('users')
+
+class DelUser(LoginRequiredMixin, DeleteView):
+    model = get_user_model()
+    template_name = 'users/delete_user.html'
+    
+    def get_success_url(self):
+        return reverse('users')

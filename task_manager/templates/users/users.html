@@ -20,9 +20,9 @@
         <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
       
         <td>
-          <a class="p-2 text-dark" href="#">Изменить</a>
+          <a class="p-2 text-dark" href="{% url 'edit_user' user.id %}">Изменить</a>
           <br>
-          <a class="p-2 text-dark" href="#">Удалить</a>
+          <a class="p-2 text-dark" href="{% url 'delete_user' user.id %}">Удалить</a>
         </td>
       </tr>
       {% endfor %}
