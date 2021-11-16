@@ -36,8 +36,8 @@ class CreateUser(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('login')
 
-class LoginForm(LoginView):
-    def init(self, *args, **kwargs):
-        super().init(*args, **kwargs)
-        self.fields['first_name'].required = True
-        self.fields['last_name'].required = True
+class LoginView(LoginView):
+    template_name = 'users/login.html'
+
+    def get_success_url(self):
+        return reverse('index')
