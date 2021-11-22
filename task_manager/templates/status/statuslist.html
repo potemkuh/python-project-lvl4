@@ -3,18 +3,18 @@
 {% block content %}
 <div>
     <div>
-        <a href="create_status">Создать статус</a>
+        <a href="{% url 'create_status' %}">Создать статус</a>
     </div>
     <table class="table table-striped">
         <tbody>
         {% for status in statuses %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>last changes      
+                <td>{{ status.id }}</td>
+                <td>{{ status.name }}</td>   
                 <td>
-                <a class="p-2 text-dark" href="#">Изменить</a>
+                <a class="p-2 text-dark" href="{% url 'status_edit' user.id %}">Изменить</a>
                 <br>
-                <a class="p-2 text-dark" href="#">Удалить</a>
+                <a class="p-2 text-dark" href="{% url 'status_delete' user.id %}">Удалить</a>
                 </td>
             </tr>
         {% endfor %}

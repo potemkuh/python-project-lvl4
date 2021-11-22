@@ -65,9 +65,24 @@ class StatusList(LoginRequiredMixin, ListView):
         return Status.objects.all()
 
 class StatusCreate(LoginRequiredMixin, CreateView):
-    model = StatusList()
-    template_name = 'users/statuses_create.html'
+    model = Status
+    template_name = 'status/statuses_create.html'
     fields = ['name']
 
     def get_success_url(self):
-        return reverse('statuses') 
+        return reverse('statuses')
+
+class StatusEdit(LoginRequiredMixin, CreateView):
+    model = Status
+    template_name = 'status/statuses_create.html'
+    fields = ['name']
+
+    def get_success_url(self):
+        return reverse('statuses')
+
+class StatusDelete(LoginRequiredMixin, CreateView):
+    model = Status
+    template_name = 'status/statuses_create.html'
+
+    def get_success_url(self):
+        return reverse('statuses')
