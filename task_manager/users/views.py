@@ -57,10 +57,17 @@ class DelUser(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         return reverse('users')
 
-class  StatusList(LoginRequiredMixin,ListView):
+class StatusList(LoginRequiredMixin, ListView):
     template_name = 'status/statuslist.html'
     context_object_name = 'statuses'
     
     def get_queryset(self):
         return Status.objects.all()
 
+class StatusCreate(LoginRequiredMixin, CreateView):
+    model = StatusList()
+    template_name = 'users/statuses_create.html'
+    fields = ['name']
+
+    def get_success_url(self):
+        return reverse('statuses') 

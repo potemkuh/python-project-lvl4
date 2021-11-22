@@ -13,5 +13,6 @@ urlpatterns = [
     path('users/<int:pk>/update/', views.EditUser.as_view(), name='edit_user' ),
     path('users/<int:pk>/delete/', views.DelUser.as_view(), name='delete_user'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('statuses/', views.StatusList.as_view(), name='statusList'),
+    path('statuses/', views.StatusList.as_view(), name='statuses'),
+    path('statuses/create/', views.StatusCreate.as_view(), name='create_status'),
 ]
