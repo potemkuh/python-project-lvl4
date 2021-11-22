@@ -61,6 +61,6 @@ class  StatusList(LoginRequiredMixin,ListView):
     template_name = 'status/statuslist.html'
     context_object_name = 'statuses'
     
-    def get_query_set():
+    def get_queryset(self):
         return Status.objects.all()
 
