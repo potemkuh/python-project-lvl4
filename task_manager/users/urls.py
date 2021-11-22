@@ -12,5 +12,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html"), name='index'),
     path('users/<int:pk>/update/', views.EditUser.as_view(), name='edit_user' ),
     path('users/<int:pk>/delete/', views.DelUser.as_view(), name='delete_user'),
-    path('logout/', LogoutView.as_view(), name='logout')
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('statuses/', views.StatusList.as_view(), name='statusList'),
 ]

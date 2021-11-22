@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
+from task_manager.users.models import Status
 
 
 
@@ -55,3 +56,11 @@ class DelUser(LoginRequiredMixin, DeleteView):
     
     def get_success_url(self):
         return reverse('users')
+
+class  StatusList(LoginRequiredMixin,ListView):
+    template_name = 'status/statuslist.html'
+    context_object_name = 'statuses'
+    
+    def get_query_set():
+        return Status.objects.all()
+
