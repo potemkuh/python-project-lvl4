@@ -6,7 +6,8 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
-from task_manager.users.models import Status
+from task_manager.users.models import Status, Task
+from django.forms import ModelForm
 
 
 
@@ -87,3 +88,36 @@ class StatusDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         return reverse('statuses')
 
+class TaskList(LoginRequiredMixin, ListView):
+    template_name = 'task/tasklist.html'
+    context_object_name = 'task'
+    
+    def get_queryset(self):
+        return Status.objects.all()
+
+class TaskForm(ModelForm):
+    class Meta():
+        model = Task
+        filds =['name', 'description', 'status', 'executor']
+
+
+class TaskCreate(SuccessMessageMixin, CreateView):
+    model = get_user_model()
+    template_name = 'task/taskcreate.html'
+    form_class = UserForm
+    successmessage = 'Вы созадли новую задачу'
+
+class TaskEdit(LoginRequiredMixin, UpdateView):
+    model = Task
+    template_name = 'task/task_edit.html'
+    fields = ['name']
+
+    def get_success_url(self):
+        return reverse('taskslist')
+
+class TaskDelete(LoginRequiredMixin, DeleteView):
+    model = Task
+    template_name = 'task/task_delete.html'
+
+    def get_success_url(self):
+        return reverse('tasklist')
