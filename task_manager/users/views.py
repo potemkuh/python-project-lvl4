@@ -90,22 +90,27 @@ class StatusDelete(LoginRequiredMixin, DeleteView):
 
 class TaskList(LoginRequiredMixin, ListView):
     template_name = 'task/tasklist.html'
-    context_object_name = 'task'
+    context_object_name = 'tasks'
     
     def get_queryset(self):
-        return Status.objects.all()
+        return Task.objects.all()
 
 class TaskForm(ModelForm):
-    class Meta():
+    class Meta:
         model = Task
-        filds =['name', 'description', 'status', 'executor']
+        fields =['name', 'description', 'status', 'executor']
 
 
 class TaskCreate(SuccessMessageMixin, CreateView):
-    model = get_user_model()
-    template_name = 'task/taskcreate.html'
-    form_class = UserForm
+    model = Task
+    template_name = 'task/task_create.html'
+    form_class = TaskForm
     successmessage = 'Вы созадли новую задачу'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class TaskEdit(LoginRequiredMixin, UpdateView):
     model = Task
@@ -113,11 +118,11 @@ class TaskEdit(LoginRequiredMixin, UpdateView):
     fields = ['name']
 
     def get_success_url(self):
-        return reverse('taskslist')
+        return reverse('tasks')
 
 class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     template_name = 'task/task_delete.html'
 
     def get_success_url(self):
-        return reverse('tasklist')
+        return reverse('tasks')
