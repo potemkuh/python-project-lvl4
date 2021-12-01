@@ -72,17 +72,18 @@ class StatusCreate(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('statuses')
 
-class StatusEdit(LoginRequiredMixin, CreateView):
+class StatusEdit(LoginRequiredMixin, UpdateView):
     model = Status
-    template_name = 'status/statuses_create.html'
+    template_name = 'status/status_edit.html'
     fields = ['name']
 
     def get_success_url(self):
         return reverse('statuses')
 
-class StatusDelete(LoginRequiredMixin, CreateView):
+class StatusDelete(LoginRequiredMixin, DeleteView):
     model = Status
-    template_name = 'status/statuses_create.html'
+    template_name = 'status/status_delete.html'
 
     def get_success_url(self):
         return reverse('statuses')
+
