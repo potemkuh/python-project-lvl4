@@ -23,3 +23,9 @@ class Task(models.Model):
     description = TextField('description', blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(blank=True, null=True)
+
+class Label(models.Model):
+    name = models.CharField('name', max_length=64, unique=True)
+
+    def __str__(self):
+        return self.name

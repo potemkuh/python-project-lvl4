@@ -126,3 +126,41 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('tasks')
+
+class LabelsList(LoginRequiredMixin, ListView):
+    template_name = 'labels/labels_list.html'
+    context_object_name = 'tasks'
+    
+    def get_queryset(self):
+        return Task.objects.all()
+
+class LabelsForm(ModelForm):
+    class Meta:
+        model = Task
+        fields =['name']
+
+class LabelsCreate(SuccessMessageMixin, CreateView):
+    model = Task
+    template_name = 'labels/labels_create.html'
+    form_class = LabelsForm
+    successmessage = 'Вы созадли новую метку'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class LabelsEdit(LoginRequiredMixin, UpdateView):
+    model = Task
+    template_name = 'labels/labels_edit.html'
+    fields = ['name']
+
+    def get_success_url(self):
+        return reverse('tasks')
+
+class LabelsDelete(LoginRequiredMixin, DeleteView):
+    model = Task
+    template_name = 'labels/labels_delete.html'
+
+    def get_success_url(self):
+        return reverse('tasks')

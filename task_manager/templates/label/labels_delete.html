@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+    <h5>Вы действительно хотите удалить "{{ object }}"?</h5>
+    <input class="btn btn-primary" type="submit" value="Да, удалить!">
+</form>
+
+{% endblock %}
