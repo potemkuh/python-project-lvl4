@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
-from task_manager.users.models import Status, Task
+from task_manager.users.models import Label, Status, Task
 from django.forms import ModelForm
 
 
@@ -129,18 +129,18 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
 
 class LabelsList(LoginRequiredMixin, ListView):
     template_name = 'labels/labels_list.html'
-    context_object_name = 'tasks'
+    context_object_name = 'labels'
     
     def get_queryset(self):
-        return Task.objects.all()
+        return Label.objects.all()
 
 class LabelsForm(ModelForm):
     class Meta:
-        model = Task
+        model = Label
         fields =['name']
 
 class LabelsCreate(SuccessMessageMixin, CreateView):
-    model = Task
+    model = Label
     template_name = 'labels/labels_create.html'
     form_class = LabelsForm
     successmessage = 'Вы созадли новую метку'
@@ -151,16 +151,16 @@ class LabelsCreate(SuccessMessageMixin, CreateView):
 
 
 class LabelsEdit(LoginRequiredMixin, UpdateView):
-    model = Task
+    model = Label
     template_name = 'labels/labels_edit.html'
     fields = ['name']
 
     def get_success_url(self):
-        return reverse('tasks')
+        return reverse('labels')
 
 class LabelsDelete(LoginRequiredMixin, DeleteView):
-    model = Task
+    model = Label
     template_name = 'labels/labels_delete.html'
 
     def get_success_url(self):
-        return reverse('tasks')
+        return reverse('labels')
