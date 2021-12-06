@@ -12,9 +12,9 @@
                 <td>{{ label.id }}</td>
                 <td>{{ label.name }}</td>   
                 <td>
-                <a class="p-2 text-dark" href="{% url 'labels_edit' label.id %}">Изменить</a>
+                <a class="p-2 text-dark" href="{% url 'label_edit' label.id %}">Изменить</a>
                 <br>
-                <a class="p-2 text-dark" href="{% url 'labels_delete' label.id %}">Удалить</a>
+                <a class="p-2 text-dark" href="{% url 'label_delete' label.id %}">Удалить</a>
                 </td>
             </tr>
         {% endfor %}
