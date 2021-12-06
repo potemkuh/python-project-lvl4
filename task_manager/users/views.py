@@ -98,7 +98,7 @@ class TaskFilter(FilterSet):
     self_tasks = BooleanFilter(
         widget = forms.CheckboxInput,
         field_name = 'creator',
-        method =' filter_self_tasks',
+        method = 'filter_self_tasks',
         label = 'Only their own tasks',
     )
 
@@ -144,6 +144,8 @@ class TaskCreate(SuccessMessageMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('tasks')
 
 class TaskEdit(LoginRequiredMixin, UpdateView):
     model = Task

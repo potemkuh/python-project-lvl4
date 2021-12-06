@@ -12,7 +12,7 @@ class User(AbstractUser):
 class Status(models.Model):
     name = models.CharField('name', max_length=64, unique=True)
 
-    def str(self):
+    def __str__(self):
         return self.name
 
 class Label(models.Model):
