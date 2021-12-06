@@ -29,4 +29,4 @@ class Task(models.Model):
     description = TextField('description', blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    lable = models.ManyToManyField(Label, related_name='labels', blank=True)
+    lables = models.ManyToManyField(Label, related_name='labels', blank=True)
