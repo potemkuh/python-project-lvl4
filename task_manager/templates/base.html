@@ -27,9 +27,6 @@
                   </li>
                   {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="{% url 'statuses' %}">Статусы</a>
                   </li>
                   <li class="nav-item">
@@ -37,6 +34,9 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'labels' %}">Метки</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
                   </li>
                   {%  else %}
                   <li class="nav-item">
@@ -57,7 +57,7 @@
     </div>
     <footer>
       <div class="container">
-          footer site
+          <a class="nav-link"href=https://github.com/potemkuh>Мой github</a>
       </div>
     </footer>
 </body>
