@@ -34,7 +34,7 @@ class LoginView(LoginView):
     template_name = 'users/login.html'
 
     def get_success_url(self):
-        return reverse('index')
+        return reverse('users')
 
 
 class EditUser(LoginRequiredMixin, UpdateView):
