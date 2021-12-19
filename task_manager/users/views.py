@@ -27,7 +27,14 @@ class CreateUser(SuccessMessageMixin, CreateView):
     successmessage = 'User successfully registered'
 
     def get_success_url(self):
-        return reverse('users')
+        return reverse('login')
+
+
+class LoginView(LoginView):
+    template_name = 'users/login.html'
+
+    def get_success_url(self):
+        return reverse('index')
 
 
 class EditUser(LoginRequiredMixin, UpdateView):
