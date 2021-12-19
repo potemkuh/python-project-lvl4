@@ -30,13 +30,6 @@ class CreateUser(SuccessMessageMixin, CreateView):
         return reverse('users')
 
 
-class LoginView(LoginView):
-    template_name = 'users/login.html'
-
-    def get_success_url(self):
-        return reverse('users')
-
-
 class EditUser(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
