@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.forms import UserForm
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 class UsersList(ListView):
@@ -23,24 +25,34 @@ class CreateUser(SuccessMessageMixin, CreateView):
     model = get_user_model()
     template_name = 'users/create.html'
     form_class = UserForm
-    successmessage = 'User successfully registered'
+    success_message = 'Пользователь успешно зарегистрирован'
 
     def get_success_url(self):
         return reverse('login')
 
 
-class EditUser(LoginRequiredMixin, UpdateView):
+class EditUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
     form_class = UserForm
+    success_message = 'Пользователь успешно изменен'
 
     def get_success_url(self):
         return reverse('users')
 
+class SuccessMessageDeleteMixin():
+    success_message = ''
 
-class DelUser(LoginRequiredMixin, DeleteView):
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
+        messages.success(self.request, self.success_message)
+        return response
+
+class DelUser(SuccessMessageDeleteMixin, LoginRequiredMixin, DeleteView):
     model = get_user_model()
     template_name = 'users/delete_user.html'
+    success_message = 'Пользователь успешно удален'
+
     
     def get_success_url(self):
         return reverse('users')
