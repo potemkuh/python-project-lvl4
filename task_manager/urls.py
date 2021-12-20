@@ -29,5 +29,5 @@ urlpatterns = [
     path('statuses/', include('task_manager.status.urls')),
     path('tasks/', include('task_manager.task.urls')),
     path('labels/', include('task_manager.label.urls')),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', v.LogoutView.as_view(), name='logout'),
 ]
