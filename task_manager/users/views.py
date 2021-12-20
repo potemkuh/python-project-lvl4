@@ -51,7 +51,7 @@ class SuccessMessageDeleteMixin():
 class DelUser(SuccessMessageDeleteMixin, LoginRequiredMixin, DeleteView):
     model = get_user_model()
     template_name = 'users/delete_user.html'
-    success_message = 'Пользователь успешно удален'
+    success_message = 'Пользователь успешно удалён'
 
     
     def get_success_url(self):
