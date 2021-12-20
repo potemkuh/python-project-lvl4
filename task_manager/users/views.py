@@ -35,7 +35,7 @@ class EditUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
     form_class = UserForm
-    success_message = 'Пользователь успешно изменен'
+    success_message = 'Пользователь успешно изменён'
 
     def get_success_url(self):
         return reverse('users')
