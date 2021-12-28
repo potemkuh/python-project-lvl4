@@ -16,27 +16,34 @@ class StatusList(LoginRequiredMixin, ListView):
         return Status.objects.all()
 
 
-class StatusCreate(LoginRequiredMixin, CreateView):
+class StatusCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Status
     template_name = 'status/statuses_create.html'
     fields = ['name']
+    success_message = 'Статус успешно создан'
 
     def get_success_url(self):
         return reverse('statuses')
 
 
-class StatusEdit(LoginRequiredMixin, UpdateView):
+class StatusEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Status
     template_name = 'status/status_edit.html'
     fields = ['name']
+    success_message = 'Статус успешно изменён'
 
     def get_success_url(self):
         return reverse('statuses')
 
 
-class StatusDelete(LoginRequiredMixin, DeleteView):
+class StatusDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Status
     template_name = 'status/status_delete.html'
+    success_message = 'Статус успешно удалён'
 
     def get_success_url(self):
         return reverse('statuses')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, ('Статус успешно удалён'))
+        return super().delete(request, *args, **kwargs)
