@@ -17,13 +17,13 @@ class Status(models.Model):
         return self.name
 
 class Label(models.Model):
-    name = models.CharField('name', max_length=64, unique=True)
+    name = models.CharField(_('name'), max_length=64, unique=True)
 
     def __str__(self):
         return self.name
 
 class Task(models.Model):
-    name = models.CharField('name', max_length=64)
+    name = models.CharField(_('name'), max_length=64)
     author = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='author')
     executor = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='executor')
     status = models.ForeignKey(Status, on_delete=models.PROTECT, related_name='status')

@@ -9,6 +9,8 @@ from django_filters.views import FilterView
 from django_filters import FilterSet
 from django_filters.filters import BooleanFilter, ModelChoiceFilter
 from django import forms
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 class TaskFilter(FilterSet):
@@ -50,7 +52,7 @@ class TaskCreate(SuccessMessageMixin, CreateView):
     model = Task
     template_name = 'task/task_create.html'
     form_class = TaskForm
-    successmessage = 'Вы созадли новую задачу'
+    successmessage = 'Задача успешно создана'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -59,17 +61,19 @@ class TaskCreate(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('tasks')
 
-class TaskEdit(LoginRequiredMixin, UpdateView):
+class TaskEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'task/task_edit.html'
     fields = ['name', 'description', 'status', 'executor', 'labels']
+    successmessage = 'Задача успешно изменена'
 
     def get_success_url(self):
         return reverse('tasks')
 
-class TaskDelete(LoginRequiredMixin, DeleteView):
+class TaskDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Task
     template_name = 'task/task_delete.html'
+    successmessage = 'Задача успешно удалена'
 
     def get_success_url(self):
         return reverse('tasks')
