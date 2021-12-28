@@ -3,6 +3,9 @@ from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.models import Status
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+
 
 
 class StatusList(LoginRequiredMixin, ListView):

@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.utils.translation import gettext as _
+
 
 
 def index(request):
