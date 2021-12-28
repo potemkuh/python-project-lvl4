@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.models import Label
 from task_manager.label.forms import LabelsForm
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 class LabelsList(LoginRequiredMixin, ListView):
@@ -18,7 +20,7 @@ class LabelsCreate(SuccessMessageMixin, CreateView):
     model = Label
     template_name = 'label/labels_create.html'
     form_class = LabelsForm
-    successmessage = 'Вы созадли новую метку'
+    successmessage = 'Метка успешно создана'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -28,18 +30,24 @@ class LabelsCreate(SuccessMessageMixin, CreateView):
         return reverse('labels')
 
 
-class LabelsEdit(LoginRequiredMixin, UpdateView):
+class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Label
     template_name = 'label/labels_edit.html'
     fields = ['name']
+    successmessage = 'Метка успешно изменена'
 
     def get_success_url(self):
         return reverse('labels')
 
 
-class LabelsDelete(LoginRequiredMixin, DeleteView):
+class LabelsDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Label
     template_name = 'label/labels_delete.html'
+    successmessage = 'Метка успешно удалена'
 
     def get_success_url(self):
         return reverse('labels')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, ('Метка успешно удалена'))
+        return super().delete(request, *args, **kwargs)
