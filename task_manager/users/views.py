@@ -7,6 +7,7 @@ from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.forms import UserForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 class UsersList(ListView):
@@ -25,7 +26,7 @@ class CreateUser(SuccessMessageMixin, CreateView):
     model = get_user_model()
     template_name = 'users/create.html'
     form_class = UserForm
-    success_message = 'Пользователь успешно зарегистрирован'
+    success_message = _('User successfully registered')
 
     def get_success_url(self):
         return reverse('login')
@@ -35,7 +36,7 @@ class EditUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
     form_class = UserForm
-    success_message = 'Пользователь успешно изменён'
+    success_message = _('User successfully updated')
 
     def get_success_url(self):
         return reverse('users')
@@ -51,7 +52,7 @@ class SuccessMessageDeleteMixin():
 class DelUser(SuccessMessageDeleteMixin, LoginRequiredMixin, DeleteView):
     model = get_user_model()
     template_name = 'users/delete_user.html'
-    success_message = 'Пользователь успешно удалён'
+    success_message = _('User successfully deleted')
 
     
     def get_success_url(self):

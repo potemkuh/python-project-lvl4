@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-28 19:52+0300\n"
+"POT-Creation-Date: 2021-12-28 20:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,123 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/base.html:21
+#: task_manager/label/views.py:24
+msgid "You are create new label"
+msgstr "Метка успешно создана"
+
+#: task_manager/label/views.py:38
+msgid "You are update label"
+msgstr "Метка успешно изменена"
+
+#: task_manager/label/views.py:47 task_manager/label/views.py:53
+msgid "Label successfully deleted"
+msgstr "Метка успешно удалена"
+
+#: task_manager/status/views.py:24
+msgid "You are create new status"
+msgstr "Статус успешно создан"
+
+#: task_manager/status/views.py:34
+msgid "You are update status"
+msgstr "Статус успешно изменён"
+
+#: task_manager/status/views.py:43 task_manager/status/views.py:49
+msgid "Status successfully deleted"
+msgstr "Статус успешно удалён"
+
+#: task_manager/task/views.py:20
+msgid "creator"
+msgstr "создатель"
+
+#: task_manager/task/views.py:22
+msgid "Only their own tasks"
+msgstr "Только свои задачи"
+
+#: task_manager/task/views.py:27 task_manager/users/models.py:33
+msgid "labels"
+msgstr "метки"
+
+#: task_manager/task/views.py:56
+msgid "You are create new tasks"
+msgstr "Задача успешно создана"
+
+#: task_manager/task/views.py:69
+msgid "You are update task"
+msgstr "Задача успешно изменена"
+
+#: task_manager/task/views.py:77 task_manager/task/views.py:83
+msgid "Task successfully deleted"
+msgstr "Задача успешно удалена"
+
+#: task_manager/templates/base.html:14 task_manager/templates/base.html:21
 msgid "Task manager"
 msgstr "Менеджер задач"
+
+#: task_manager/templates/base.html:28
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/templates/base.html:32
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/base.html:35
+msgid "Task"
+msgstr "Задачи"
+
+#: task_manager/templates/base.html:38
+msgid "Labels"
+msgstr "Метки"
+
+#: task_manager/templates/base.html:41
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/base.html:45
+msgid "Login"
+msgstr "Вход"
+
+#: task_manager/templates/base.html:48
+msgid "Registration"
+msgstr "Регистрация"
 
 #: task_manager/users/models.py:14 task_manager/users/models.py:20
 #: task_manager/users/models.py:26
 msgid "name"
 msgstr "Имя"
+
+#: task_manager/users/models.py:27
+msgid "author"
+msgstr "автор"
+
+#: task_manager/users/models.py:28
+msgid "executor"
+msgstr "исполнитель"
+
+#: task_manager/users/models.py:29
+msgid "status"
+msgstr "статус"
+
+#: task_manager/users/models.py:30
+msgid "description"
+msgstr "описание"
+
+#: task_manager/users/views.py:29
+msgid "User successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py:39
+msgid "User successfully updated"
+msgstr "Пользователь успешно изменён"
+
+#: task_manager/users/views.py:55
+msgid "User successfully deleted"
+msgstr "Пользователь успешно удалён"
+
+#: task_manager/views.py:16
+msgid "You are logged in"
+msgstr "Вы залогинены"
+
+#: task_manager/views.py:20
+msgid "You are logged out"
+msgstr "Вы разлогинены"

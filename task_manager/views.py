@@ -13,9 +13,9 @@ def index(request):
 class LoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
 
-    success_message = 'Вы залогинены'
+    success_message = _('You are logged in')
 
 class LogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
-        messages.info(request, 'Вы разлогинены')
+        messages.info(request, _('You are logged out'))
         return super().dispatch(request, *args, **kwargs)

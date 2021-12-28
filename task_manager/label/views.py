@@ -7,6 +7,7 @@ from task_manager.users.models import Label
 from task_manager.label.forms import LabelsForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 class LabelsList(LoginRequiredMixin, ListView):
@@ -20,7 +21,7 @@ class LabelsCreate(SuccessMessageMixin, CreateView):
     model = Label
     template_name = 'label/labels_create.html'
     form_class = LabelsForm
-    successmessage = 'Метка успешно создана'
+    successmessage = _('You are create new label')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -34,7 +35,7 @@ class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Label
     template_name = 'label/labels_edit.html'
     fields = ['name']
-    successmessage = 'Метка успешно изменена'
+    successmessage = _('You are update label')
 
     def get_success_url(self):
         return reverse('labels')
@@ -43,11 +44,11 @@ class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 class LabelsDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Label
     template_name = 'label/labels_delete.html'
-    successmessage = 'Метка успешно удалена'
+    successmessage = _('Label successfully deleted')
 
     def get_success_url(self):
         return reverse('labels')
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, ('Метка успешно удалена'))
+        messages.success(self.request, _('Label successfully deleted'))
         return super().delete(request, *args, **kwargs)
