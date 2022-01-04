@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div>
     <div>
-        <a href="{% url 'create_status' %}">Создать статус</a>
+        <a href="{% url 'create_status' %}">{% trans 'Create status' %}</a>
     </div>
     <table class="table table-striped">
         <tbody>
@@ -12,9 +13,9 @@
                 <td>{{ status.id }}</td>
                 <td>{{ status.name }}</td>   
                 <td>
-                <a class="p-2 text-dark" href="{% url 'status_edit' status.id %}">Изменить</a>
+                <a class="p-2 text-dark" href="{% url 'status_edit' status.id %}">{% trans 'Change' %}</a>
                 <br>
-                <a class="p-2 text-dark" href="{% url 'status_delete' status.id %}">Удалить</a>
+                <a class="p-2 text-dark" href="{% url 'status_delete' status.id %}">{% trans 'Delete' %}</a>
                 </td>
             </tr>
         {% endfor %}

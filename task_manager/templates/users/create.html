@@ -2,13 +2,14 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+{% load i18n %}
 
 
 {% block content %}
 
 <form method="post">{% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Зарегистрировать">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Register' %}">
 </form>
 
 {% endblock %}

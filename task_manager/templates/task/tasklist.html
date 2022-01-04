@@ -3,11 +3,13 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+{% load i18n %}
+
 
 {% block content %}
 <div>
     <div>
-        <a href="{% url 'create_task' %}">Создать задачу</a>
+        <a href="{% url 'create_task' %}">{% trans "Create task" %}</a>
     </div>
     <form class="form-inline center" style="margin-bottom: 10px" method="get">
         {% bootstrap_field filter.form.status field_class='ml-2 mr-3' %}
@@ -27,9 +29,9 @@
                 <td>{{ task.executor }}</td>
                 <td>{{ task.status }}</td>
                 <td>
-                <a class="p-2 text-dark" href="{% url 'task_edit' task.id %}">Изменить</a>
+                <a class="p-2 text-dark" href="{% url 'task_edit' task.id %}">{% trans 'Change' %}</a>
                 <br>
-                <a class="p-2 text-dark" href="{% url 'task_delete' task.id %}">Удалить</a>
+                <a class="p-2 text-dark" href="{% url 'task_delete' task.id %}">{% trans 'Delete' %}</a>
                 </td>
             </tr>
         {% endfor %}
