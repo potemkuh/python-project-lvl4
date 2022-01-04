@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 14:35+0300\n"
+"POT-Creation-Date: 2022-01-04 19:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: task_manager/label/views.py:38
 msgid "You are update label"
-msgstr "Метка успешно создана"
+msgstr ""
 
 #: task_manager/label/views.py:47 task_manager/label/views.py:53
 msgid "Label successfully deleted"
@@ -42,7 +42,7 @@ msgstr "Статус успешно изменён"
 
 #: task_manager/status/views.py:43 task_manager/status/views.py:49
 msgid "Status successfully deleted"
-msgstr "Статус успешно удалён"
+msgstr "Статус успешно удален"
 
 #: task_manager/task/forms.py:10 task_manager/users/models.py:30
 msgid "description"
@@ -50,7 +50,7 @@ msgstr "описание"
 
 #: task_manager/task/forms.py:10 task_manager/users/models.py:29
 msgid "status"
-msgstr "Статус"
+msgstr "статус"
 
 #: task_manager/task/forms.py:10 task_manager/users/models.py:28
 msgid "executor"
@@ -71,7 +71,7 @@ msgstr "Задача успешно создана"
 
 #: task_manager/task/views.py:69
 msgid "You are update task"
-msgstr "Задача успешно изменёна"
+msgstr "Задача успешно изменена"
 
 #: task_manager/task/views.py:77 task_manager/task/views.py:83
 msgid "Task successfully deleted"
@@ -129,7 +129,7 @@ msgstr "Создать метку"
 #: task_manager/templates/task/task_delete.html:12
 #: task_manager/templates/users/delete_user.html:11
 msgid "Do you really want to delete"
-msgstr "Вы действительно хотите удалить"
+msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/templates/label/labels_list.html:16
 #: task_manager/templates/status/statuslist.html:16
@@ -182,7 +182,7 @@ msgstr "Дата создания"
 #: task_manager/users/models.py:14 task_manager/users/models.py:20
 #: task_manager/users/models.py:26
 msgid "name"
-msgstr "Имя"
+msgstr "имя"
 
 #: task_manager/users/models.py:27
 msgid "author"
@@ -198,12 +198,12 @@ msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py:55
 msgid "User successfully deleted"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/views.py:16
 msgid "You are logged in"
-msgstr "Вы вошли в систему"
+msgstr "Вы залогинены"
 
 #: task_manager/views.py:20
 msgid "You are logged out"
-msgstr "Вы вышли из системы"
+msgstr "Вы разлогинены"
