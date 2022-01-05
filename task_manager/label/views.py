@@ -17,7 +17,7 @@ class LabelsList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Label.objects.all()
 
-class LabelsCreate(SuccessMessageMixin, CreateView):
+class LabelsCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Label
     template_name = 'label/labels_create.html'
     form_class = LabelsForm
