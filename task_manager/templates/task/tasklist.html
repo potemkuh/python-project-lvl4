@@ -5,21 +5,31 @@
 {% bootstrap_javascript jquery='full' %}
 {% load i18n %}
 
-
 {% block content %}
+
 <div>
     <div>
         <a href="{% url 'create_task' %}">{% trans "Create task" %}</a>
     </div>
-    <form class="form-inline center" style="margin-bottom: 10px" method="get">
+    <form class="form-inline center" method="get">
         {% bootstrap_field filter.form.status field_class='ml-2 mr-3' %}
         {% bootstrap_field filter.form.executor field_class='mr-3 ml-2' %}
         {% bootstrap_field filter.form.label field_class='mr-3 ml-2' %}
         {% bootstrap_field filter.form.author field_class='mr-3 ml-2' %}
         {% bootstrap_field filter.form.self_tasks field_class='mr-3' %}
-        <input class="btn btn-primary" type="submit" value="Show">
+        <input class="btn btn-primary" type="submit" value="{% translate 'Show' %)">
     </form>
     <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>{% trans "Name" %}</th>
+              <th>{% trans "Status" %}</th>
+              <th>{% trans "Author" %}</th>
+              <th>{% trans "Executor" %}</th>
+              <th>{% trans "Create date" %}</th>
+            </tr>
+          </thead>
         <tbody>
         {% for task in tasks %}
             <tr>
@@ -28,6 +38,7 @@
                 <td>{{ task.author }}</td>
                 <td>{{ task.executor }}</td>
                 <td>{{ task.status }}</td>
+                <td>{{ task.create_date|date:"d.m.Y H:i" }}</td>
                 <td>
                 <a class="p-2 text-dark" href="{% url 'task_edit' task.id %}">{% trans 'Change' %}</a>
                 <br>

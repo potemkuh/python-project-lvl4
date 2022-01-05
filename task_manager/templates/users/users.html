@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
 {% load i18n %}
+{% bootstrap_javascript jquery='full' %}
+
 
 
 {% block content %}
@@ -17,7 +21,7 @@
       {% for user in users %}
       <tr>
         <td>{{ user.id }}</td>
-        <td>{{ user.username }}</td>last changes
+        <td>{{ user.username }}</td>
         <td>{{ user.get_full_name }}</td>
         <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
       

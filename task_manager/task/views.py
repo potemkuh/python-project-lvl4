@@ -19,7 +19,7 @@ class TaskFilter(FilterSet):
         widget = forms.CheckboxInput,
         field_name = _('creator'),
         method = 'filter_self_tasks',
-        label = 'Only their own tasks',
+        label = _('Only their own tasks'),
     )
 
     label = ModelChoiceFilter(
@@ -49,7 +49,7 @@ class TaskList(LoginRequiredMixin, FilterView):
         return Task.objects.all()
 
 
-class TaskCreate(SuccessMessageMixin, CreateView):
+class TaskCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'task/task_create.html'
     form_class = TaskForm

@@ -7,4 +7,4 @@ from django.utils.translation import gettext_lazy as _
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields =['name', _('description'), _('status'), _('executor'), _('labels')]
+        fields =['name', 'description', 'status', 'executor', 'labels']

@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
+
 {% load bootstrap4 %}
 {% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
 {% load i18n %}
-
-
+{% bootstrap_javascript jquery='full' %}
 
 {% block content %}
 
 <form method="post">{% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="{% trans 'Edit' %}">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Change' %}">
 </form>
 
 {% endblock %}
