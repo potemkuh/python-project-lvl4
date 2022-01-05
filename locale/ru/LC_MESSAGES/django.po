@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-05 14:35+0300\n"
+"POT-Creation-Date: 2022-01-05 14:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,9 +94,9 @@ msgid "Logout"
 msgstr "Выход"
 
 #: task_manager/templates/base.html:45
-#: task_manager/templates/users/login.html:12
+#: task_manager/templates/users/login.html:11
 msgid "Login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/base.html:48
 msgid "Registration"
@@ -171,6 +171,10 @@ msgstr "Да, удалить"
 msgid "Create task"
 msgstr "Создать задачу"
 
+#: task_manager/templates/task/tasklist.html:20
+msgid "Show"
+msgstr "Показать"
+
 #: task_manager/templates/task/tasklist.html:27
 #, fuzzy
 #| msgid "Statuses"
@@ -187,7 +191,7 @@ msgstr "Автор"
 #, fuzzy
 #| msgid "executor"
 msgid "Executor"
-msgstr "исполнитель"
+msgstr "Исполнитель"
 
 #: task_manager/templates/users/create.html:12
 msgid "Register"
@@ -200,27 +204,6 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/users.html:15
 msgid "Full name"
 msgstr "Полное имя"
-
-#: task_manager/users/models.py:14 task_manager/users/models.py:21
-#: task_manager/users/models.py:28
-msgid "name"
-msgstr "имя"
-
-#: task_manager/users/models.py:29
-msgid "author"
-msgstr "Автор"
-
-#: task_manager/users/models.py:30
-msgid "executor"
-msgstr "исполнитель"
-
-#: task_manager/users/models.py:31
-msgid "status"
-msgstr "статус"
-
-#: task_manager/users/models.py:32
-msgid "description"
-msgstr "описание"
 
 #: task_manager/users/views.py:29
 msgid "User successfully registered"
