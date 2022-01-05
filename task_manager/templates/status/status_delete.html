@@ -9,7 +9,7 @@
 
 <form method="post">{% csrf_token %}
     <h5>{% trans "Do you really want to delete" %} "{{ object }}"?</h5>
-    <input class="btn btn-primary" type="submit" value="{% trans 'Yes, delete' %">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Yes, delete' %}">
 </form>
 
 {% endblock %}
