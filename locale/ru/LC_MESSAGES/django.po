@@ -42,7 +42,7 @@ msgstr "Статус успешно изменён"
 
 #: task_manager/status/views.py:43 task_manager/status/views.py:49
 msgid "Status successfully deleted"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: task_manager/task/views.py:20
 msgid "creator"
@@ -249,7 +249,7 @@ msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py:55
 msgid "User successfully deleted"
-msgstr "Пользователь успешно удален"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/views.py:16
 msgid "You are logged in"
