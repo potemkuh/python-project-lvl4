@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-05 15:15+0300\n"
+"POT-Creation-Date: 2022-01-05 15:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,9 +110,10 @@ msgid "Hexlet training project"
 msgstr "Учебный проект Хекслета"
 
 #: task_manager/templates/label/labels_create.html:12
-#: task_manager/templates/label/labels_list.html:12
-msgid "Create label"
-msgstr "Создать метку"
+#: task_manager/templates/status/statuses_create.html:12
+#: task_manager/templates/task/task_create.html:12
+msgid "Create"
+msgstr "Создать"
 
 #: task_manager/templates/label/labels_delete.html:11
 #: task_manager/templates/status/status_delete.html:11
@@ -131,6 +132,10 @@ msgstr "Вы уверены, что хотите удалить"
 #: task_manager/templates/users/users.html:29
 msgid "Change"
 msgstr "Изменить"
+
+#: task_manager/templates/label/labels_list.html:12
+msgid "Create label"
+msgstr "Создать метку"
 
 #: task_manager/templates/label/labels_list.html:18
 #: task_manager/templates/status/statuslist.html:18
@@ -157,11 +162,6 @@ msgstr "Удалить"
 #: task_manager/templates/users/delete_user.html:12
 msgid "Yes, delete"
 msgstr "Да, удалить"
-
-#: task_manager/templates/status/statuses_create.html:12
-#: task_manager/templates/task/task_create.html:12
-msgid "Create"
-msgstr "Создать"
 
 #: task_manager/templates/status/statuslist.html:12
 msgid "Create status"
