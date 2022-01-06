@@ -46,7 +46,7 @@ msgstr "Статус успешно удалён"
 
 #: task_manager/task/views.py:20
 msgid "creator"
-msgstr "создатель"
+msgstr "Создатель"
 
 #: task_manager/task/views.py:22
 msgid "Only their own tasks"
@@ -54,7 +54,7 @@ msgstr "Только свои задачи"
 
 #: task_manager/task/views.py:27 task_manager/users/models.py:35
 msgid "labels"
-msgstr "метки"
+msgstr "Метки"
 
 #: task_manager/task/views.py:56
 msgid "You are create new tasks"
@@ -190,7 +190,7 @@ msgstr "Исполнитель"
 
 #: task_manager/templates/users/create.html:12
 msgid "Register"
-msgstr "Регистрация"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/login.html:11
 msgid "To come in"
@@ -207,23 +207,23 @@ msgstr "Полное имя"
 #: task_manager/users/models.py:14 task_manager/users/models.py:21
 #: task_manager/users/models.py:28
 msgid "name"
-msgstr "имя"
+msgstr "Имя"
 
 #: task_manager/users/models.py:29
 msgid "author"
-msgstr "автор"
+msgstr "Автор"
 
 #: task_manager/users/models.py:30
 msgid "executor"
-msgstr "исполнитель"
+msgstr "Исполнитель"
 
 #: task_manager/users/models.py:31
 msgid "status"
-msgstr "статус"
+msgstr "Статус"
 
 #: task_manager/users/models.py:32
 msgid "description"
-msgstr "описание"
+msgstr "Описание"
 
 #: task_manager/users/views.py:29
 msgid "User successfully registered"
