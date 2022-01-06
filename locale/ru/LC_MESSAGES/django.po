@@ -54,7 +54,7 @@ msgstr "Только свои задачи"
 
 #: task_manager/task/views.py:28
 msgid "Label"
-msgstr "Метки"
+msgstr "Метка"
 
 #: task_manager/task/views.py:56
 msgid "You are create new tasks"
