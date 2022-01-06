@@ -24,8 +24,8 @@ class TaskFilter(FilterSet):
 
     label = ModelChoiceFilter(
         queryset = Label.objects.all(),
-        field_name = _('labels'),
-        label = 'Label',
+        field_name = 'labels',
+        label = _('Label'),
     )
 
     def filter_self_tasks(self, queryset, name, value):
