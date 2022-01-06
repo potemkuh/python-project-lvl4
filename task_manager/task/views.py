@@ -53,7 +53,7 @@ class TaskCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'task/task_create.html'
     form_class = TaskForm
-    successmessage = _('You are create new tasks')
+    success_message = _('You are create new tasks')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -66,7 +66,7 @@ class TaskEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'task/task_edit.html'
     fields = ['name', 'description', 'status', 'executor', 'labels']
-    successmessage = _('You are update task')
+    success_message = _('You are update task')
 
     def get_success_url(self):
         return reverse('tasks')
@@ -74,7 +74,7 @@ class TaskEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 class TaskDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Task
     template_name = 'task/task_delete.html'
-    successmessage = _('Task successfully deleted')
+    success_message = _('Task successfully deleted')
 
     def get_success_url(self):
         return reverse('tasks')

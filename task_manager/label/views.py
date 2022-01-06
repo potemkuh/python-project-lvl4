@@ -21,7 +21,7 @@ class LabelsCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Label
     template_name = 'label/labels_create.html'
     form_class = LabelsForm
-    successmessage = _('You are create new label')
+    success_message = _('You are create new label')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -35,7 +35,7 @@ class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Label
     template_name = 'label/labels_edit.html'
     fields = ['name']
-    successmessage = _('You are update label')
+    success_message = _('You are update label')
 
     def get_success_url(self):
         return reverse('labels')
@@ -44,7 +44,7 @@ class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 class LabelsDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Label
     template_name = 'label/labels_delete.html'
-    successmessage = _('Label successfully deleted')
+    success_message = _('Label successfully deleted')
 
     def get_success_url(self):
         return reverse('labels')
