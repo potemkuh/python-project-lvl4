@@ -5,4 +5,4 @@ from task_manager.task.views import Task
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields =['name', 'description', 'status', 'executor', 'labels']
+        fields = ['name', 'description', 'status', 'executor', 'labels']

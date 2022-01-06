@@ -4,8 +4,8 @@ from django.urls import reverse
 from task_manager.users.models import User
 
 
-USER_NAME ='testuser'
-USER_PASS ='12345'
+USER_NAME = 'testuser'
+USER_PASS = '12345'
 
 
 class TestRegistrAndLogin(TestCase):
@@ -20,14 +20,14 @@ class TestRegistrAndLogin(TestCase):
             'username': username,
             'password1': password1,
             'password2': password2 
-        }
+        }        
         reg = client.post(reverse('create'), user, follow=True)
 
         self.assertEqual(reg.status_code, 200)
 
     def test_login(self):
         client = Client()
-        User.objects.create_user(username= USER_NAME, password= USER_PASS)
+        User.objects.create_user(username=USER_NAME, password=USER_PASS)
         user = {
             'username': USER_NAME,
             'password': USER_PASS             
@@ -36,6 +36,3 @@ class TestRegistrAndLogin(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.context['user'].is_authenticated, True)
-
-# user = create_user(is_staff=True) создает пользовалетеля админ
-# client.force_login(user) логин без юзера и пароля

@@ -5,8 +5,9 @@ from task_manager.users.models import Label, User
 
 
 DATA = {'name': 'new_label'}
-USER_NAME ='testuser'
-USER_PASS ='12345'
+USER_NAME = ' testuser'
+USER_PASS = '12345'
+
 
 class TestLabels(TestCase):
 
@@ -22,7 +23,6 @@ class TestLabels(TestCase):
         self.assertEqual(response.status_code, 200)
         # проверили что статус есть в бд
         self.assertEqual(DATA['name'], db_lable.name)
-
 
     def test_delete_label(self):
         client = Client()

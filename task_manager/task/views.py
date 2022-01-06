@@ -9,23 +9,22 @@ from django_filters.views import FilterView
 from django_filters import FilterSet
 from django_filters.filters import BooleanFilter, ModelChoiceFilter
 from django import forms
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 
 class TaskFilter(FilterSet):
     self_tasks = BooleanFilter(
-        widget = forms.CheckboxInput,
-        field_name = _('creator'),
-        method = 'filter_self_tasks',
-        label = _('Only their own tasks'),
+        widget=forms.CheckboxInput,
+        field_name=_('creator'),
+        method='filter_self_tasks',
+        label=_('Only their own tasks'),
     )
 
     label = ModelChoiceFilter(
-        queryset = Label.objects.all(),
-        field_name = 'labels',
-        label = _('Label'),
+        queryset=Label.objects.all(),
+        field_name='labels',
+        label=_('Label'),
     )
 
     def filter_self_tasks(self, queryset, name, value):
@@ -38,13 +37,11 @@ class TaskFilter(FilterSet):
         fields = ['status', 'executor', 'author', 'label', 'self_tasks']
 
 
-
 class TaskList(LoginRequiredMixin, FilterView):
     template_name = 'task/tasklist.html'
     context_object_name = 'tasks'
     filterset_class = TaskFilter
 
-    
     def get_queryset(self):
         return Task.objects.all()
 
@@ -62,6 +59,7 @@ class TaskCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('tasks')
 
+
 class TaskEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'task/task_edit.html'
@@ -70,6 +68,7 @@ class TaskEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('tasks')
+
 
 class TaskDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Task

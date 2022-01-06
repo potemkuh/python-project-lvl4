@@ -5,8 +5,9 @@ from task_manager.users.models import Status, User
 
 
 DATA = {'name': 'new'}
-USER_NAME ='testuser'
-USER_PASS ='12345'
+USER_NAME = 'testuser'
+USER_PASS = '12345'
+
 
 class TestStatus(TestCase):
 
@@ -22,7 +23,6 @@ class TestStatus(TestCase):
         self.assertEqual(response.status_code, 200)
         # проверили что статус есть в бд
         self.assertEqual(DATA['name'], db_stasus.name)
-
 
     def test_delete_status(self):
         client = Client()

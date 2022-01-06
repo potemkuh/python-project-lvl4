@@ -6,8 +6,8 @@ from task_manager.users.models import Label, User, Task, Status
 
 DATA_STATUS = {'name': 'new_status'}
 DATA_LABLE = {'name': 'new_label'}
-USER_NAME ='testuser'
-USER_PASS ='12345'
+USER_NAME = 'testuser'
+USER_PASS = '12345'
 
 
 def database_fill():
@@ -21,13 +21,14 @@ def database_fill():
 
 
 def task_create_and_get_name():
-    Task.objects.create(name = 'test_task',
-                        description = 'description',
-                        status = Status.objects.get(name=DATA_STATUS['name']),
-                        author = User.objects.get(username=USER_NAME),
-                        executor = User.objects.get(username=USER_NAME)
+    Task.objects.create(name='test_task',
+                        description='description',
+                        status=Status.objects.get(name=DATA_STATUS['name']),
+                        author=User.objects.get(username=USER_NAME),
+                        executor=User.objects.get(username=USER_NAME)
                         )
     return Task.objects.get(name='test_task')
+
 
 def create_task_data(status, label, user):
     task_data = {
@@ -39,6 +40,7 @@ def create_task_data(status, label, user):
         'labels': [label.pk],
     }
     return task_data
+
 
 class TestLabels(TestCase):
 
@@ -55,7 +57,6 @@ class TestLabels(TestCase):
         self.assertEqual(response.status_code, 200)
         # проверили что задача есть в бд
         self.assertEqual(task_data['name'], db_task.name)
-
 
     def test_update_task(self):
         client = Client()

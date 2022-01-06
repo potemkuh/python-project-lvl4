@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from task_manager import views as v
 from task_manager.users import views
-from django.contrib.auth.views import  LogoutView
 
 
 urlpatterns = [

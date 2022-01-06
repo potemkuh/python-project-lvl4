@@ -5,7 +5,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.models import Label
 from task_manager.label.forms import LabelsForm
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
@@ -13,9 +12,10 @@ from django.utils.translation import gettext_lazy as _
 class LabelsList(LoginRequiredMixin, ListView):
     template_name = 'label/labels_list.html'
     context_object_name = 'labels'
-    
+
     def get_queryset(self):
         return Label.objects.all()
+
 
 class LabelsCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Label

@@ -8,11 +8,10 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 
-
 class StatusList(LoginRequiredMixin, ListView):
     template_name = 'status/statuslist.html'
     context_object_name = 'statuses'
-    
+
     def get_queryset(self):
         return Status.objects.all()
 
