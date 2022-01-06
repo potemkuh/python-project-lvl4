@@ -182,14 +182,11 @@ msgid "Status"
 msgstr "Статусы"
 
 #: task_manager/templates/task/tasklist.html:28
-#, fuzzy
 #| msgid "author"
 msgid "Author"
 msgstr "Автор"
 
 #: task_manager/templates/task/tasklist.html:29
-#, fuzzy
-#| msgid "executor"
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -211,34 +208,24 @@ msgstr "Полное имя"
 
 #: task_manager/users/models.py:14 task_manager/users/models.py:21
 #: task_manager/users/models.py:28
-#, fuzzy
-#| msgid "User name"
 msgid "name"
-msgstr "Имя пользователя"
+msgstr "Имя"
 
 #: task_manager/users/models.py:29
-#, fuzzy
-#| msgid "author"
 msgid "author"
 msgstr "Автор"
 
 #: task_manager/users/models.py:30
-#, fuzzy
-#| msgid "executor"
 msgid "executor"
 msgstr "Исполнитель"
 
 #: task_manager/users/models.py:31
-#, fuzzy
-#| msgid "Statuses"
 msgid "status"
 msgstr "Статусы"
 
 #: task_manager/users/models.py:32
-#, fuzzy
-#| msgid "Registration"
 msgid "description"
-msgstr "Регистрация"
+msgstr "Описание"
 
 #: task_manager/users/views.py:29
 msgid "User successfully registered"
