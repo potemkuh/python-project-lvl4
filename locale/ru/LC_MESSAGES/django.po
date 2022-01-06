@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 14:32+0300\n"
+"POT-Creation-Date: 2022-01-06 14:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr "Да, удалить"
 #: task_manager/templates/status/status_edit.html:12
 #: task_manager/templates/status/statuslist.html:29
 #: task_manager/templates/task/task_edit.html:12
-#: task_manager/templates/task/tasklist.html:43
+#: task_manager/templates/task/tasklist.html:45
 #: task_manager/templates/users/edit_user.html:12
 #: task_manager/templates/users/users.html:29
 msgid "Change"
@@ -152,14 +152,14 @@ msgstr "Имя"
 
 #: task_manager/templates/label/labels_list.html:19
 #: task_manager/templates/status/statuslist.html:19
-#: task_manager/templates/task/tasklist.html:30
+#: task_manager/templates/task/tasklist.html:31
 #: task_manager/templates/users/users.html:16
 msgid "Create date"
 msgstr "Дата создания"
 
 #: task_manager/templates/label/labels_list.html:31
 #: task_manager/templates/status/statuslist.html:31
-#: task_manager/templates/task/tasklist.html:45
+#: task_manager/templates/task/tasklist.html:47
 #: task_manager/templates/users/users.html:31
 msgid "Delete"
 msgstr "Удалить"
@@ -187,6 +187,10 @@ msgstr "Автор"
 #: task_manager/templates/task/tasklist.html:29
 msgid "Executor"
 msgstr "Исполнитель"
+
+#: task_manager/templates/task/tasklist.html:30
+msgid "Description"
+msgstr "Описание"
 
 #: task_manager/templates/users/create.html:12
 msgid "Register"

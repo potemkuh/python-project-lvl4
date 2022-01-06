@@ -27,6 +27,7 @@
               <th>{% trans "Status" %}</th>
               <th>{% trans "Author" %}</th>
               <th>{% trans "Executor" %}</th>
+              <th>{% trans "Description" %}</th>
               <th>{% trans "Create date" %}</th>
             </tr>
           </thead>
@@ -38,6 +39,7 @@
                 <td>{{ task.author }}</td>
                 <td>{{ task.executor }}</td>
                 <td>{{ task.status }}</td>
+                <td>{{ task.description }}</td>
                 <td>{{ task.create_date|date:"d.m.Y H:i" }}</td>
                 <td>
                 <a class="p-2 text-dark" href="{% url 'task_edit' task.id %}">{% trans 'Change' %}</a>
