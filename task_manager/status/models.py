@@ -8,3 +8,7 @@ class Status(models.Model):
 
     def __str__(self):
         return self.name
+from task_manager.users.models import User
+from task_manager.label.models import Label
+from task_manager.task.models import Task
+from task_manager.status.models import Status

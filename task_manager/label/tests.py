@@ -33,7 +33,7 @@ class TestLabels(TestCase):
         old_status = Label.objects.get(name='name')
         # получем урл с номером пк статуса
         lable_delete_url = reverse('label_delete', args=[str(old_status.pk)])
-        # удаляем статус 
+        # удаляем статус
         response = client.post(lable_delete_url, follow=True)
         # проверка ответа сервера
         self.assertEqual(response.status_code, 200)

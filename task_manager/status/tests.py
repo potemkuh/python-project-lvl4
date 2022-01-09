@@ -5,7 +5,6 @@ from task_manager.users.models import User
 from task_manager.status.models import Status
 
 
-
 DATA = {'name': 'new'}
 USER_NAME = 'testuser'
 USER_PASS = '12345'
@@ -34,7 +33,7 @@ class TestStatus(TestCase):
         old_status = Status.objects.get(name='name')
         # получем урл с номером пкстатуса
         status_delete_url = reverse('status_delete', args=[str(old_status.pk)])
-        # удаляем статус 
+        # удаляем статус
         response = client.post(status_delete_url, follow=True)
         # проверка ответа сервера
         self.assertEqual(response.status_code, 200)

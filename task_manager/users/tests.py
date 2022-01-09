@@ -19,8 +19,8 @@ class TestRegistrAndLogin(TestCase):
             'last_name': 'test_last',
             'username': username,
             'password1': password1,
-            'password2': password2 
-        }        
+            'password2': password2
+        }
         reg = client.post(reverse('create'), user, follow=True)
 
         self.assertEqual(reg.status_code, 200)
@@ -30,7 +30,7 @@ class TestRegistrAndLogin(TestCase):
         User.objects.create_user(username=USER_NAME, password=USER_PASS)
         user = {
             'username': USER_NAME,
-            'password': USER_PASS             
+            'password': USER_PASS
         }
         res = client.post(reverse('login'), user, follow=True)
 
