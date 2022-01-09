@@ -3,7 +3,7 @@ from django.views.generic import CreateView, ListView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
-from task_manager.users.models import Label
+from task_manager.label.models import Label
 from task_manager.label.forms import LabelsForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _

@@ -3,7 +3,8 @@ from django.views.generic import CreateView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
-from task_manager.users.models import Label, Task
+from task_manager.task.models import Task
+from task_manager.label.models import Label
 from task_manager.task.forms import TaskForm
 from django_filters.views import FilterView
 from django_filters import FilterSet
