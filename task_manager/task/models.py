@@ -14,7 +14,7 @@ class Task(models.Model):
     description = TextField(_('description'), blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    labels = models.ManyToManyField(Label, related_name='labels', verbose_name=_('labels'), blank=True)
+    labels = models.ManyToManyField(Label, related_name='label', verbose_name=_('labels'), blank=True)
 
     def __str__(self):
         return self.name
