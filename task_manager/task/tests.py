@@ -1,7 +1,10 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.urls import reverse
-from task_manager.users.models import Label, User, Task, Status
+from task_manager.users.models import User
+from task_manager.label.models import Label
+from task_manager.task.models import Task
+from task_manager.status.models import Status
 
 
 DATA_STATUS = {'name': 'new_status'}
