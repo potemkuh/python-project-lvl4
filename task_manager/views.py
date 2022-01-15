@@ -5,10 +5,6 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 
 
-def index(request):
-    return render(request, 'index.html')
-
-
 class LoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
 

@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.forms import UserForm
-from django.contrib import messages
+from task_manager.users.delete_mixin import SuccessMessageDeleteMixin
 from django.utils.translation import gettext_lazy as _
 
 
@@ -38,15 +38,6 @@ class EditUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('users')
-
-
-class SuccessMessageDeleteMixin():
-    success_message = ''
-
-    def delete(self, request, *args, **kwargs):
-        response = super().delete(request, *args, **kwargs)
-        messages.success(self.request, self.success_message)
-        return response
 
 
 class DelUser(SuccessMessageDeleteMixin, LoginRequiredMixin, DeleteView):

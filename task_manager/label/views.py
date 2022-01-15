@@ -34,7 +34,7 @@ class LabelsCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 class LabelsEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Label
     template_name = 'label/labels_edit.html'
-    fields = ['name']
+    form_class = LabelsForm
     success_message = _('You are update label')
 
     def get_success_url(self):

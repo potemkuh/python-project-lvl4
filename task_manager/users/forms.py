@@ -8,7 +8,7 @@ class UserForm(UserCreationForm):
         model = get_user_model()
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
 
-    def init(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().init(*args, **kwargs)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True

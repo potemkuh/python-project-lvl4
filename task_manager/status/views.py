@@ -5,6 +5,7 @@ from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.status.models import Status
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from task_manager.status.forms import StatusForm
 from django.utils.translation import gettext_lazy as _
 
 
@@ -19,7 +20,7 @@ class StatusList(LoginRequiredMixin, ListView):
 class StatusCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Status
     template_name = 'status/statuses_create.html'
-    fields = ['name']
+    form_class = StatusForm
     success_message = _('You are create new status')
 
     def get_success_url(self):
@@ -29,7 +30,7 @@ class StatusCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 class StatusEdit(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Status
     template_name = 'status/status_edit.html'
-    fields = ['name']
+    form_class = StatusForm
     success_message = _('You are update status')
 
     def get_success_url(self):

@@ -4,7 +4,7 @@ install:
 migrate:
 	poetry run python manage.py migrate
 
-makemigrations:
+migrations:
 	poetry run python manage.py makemigrations
 
 run:
@@ -13,7 +13,7 @@ run:
 lint:
 	poetry run flake8 .
 
-makemessages:
+messages:
 	django-admin makemessages -l ru
 
 compilemessages:

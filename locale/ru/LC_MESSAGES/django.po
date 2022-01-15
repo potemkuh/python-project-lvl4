@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-06 15:04+0300\n"
+"POT-Creation-Date: 2022-01-15 21:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/label/models.py:6 task_manager/status/models.py:6
+#: task_manager/task/models.py:10
+msgid "name"
+msgstr "Имя"
+
+#: task_manager/label/models.py:7 task_manager/status/models.py:7
+msgid "create_date"
+msgstr "Дата создания"
 
 #: task_manager/label/views.py:24
 msgid "You are create new label"
@@ -44,6 +53,26 @@ msgstr "Статус успешно изменён"
 msgid "Status successfully deleted"
 msgstr "Статус успешно удалён"
 
+#: task_manager/task/models.py:15
+msgid "author"
+msgstr "Автор"
+
+#: task_manager/task/models.py:20
+msgid "executor"
+msgstr "Исполнитель"
+
+#: task_manager/task/models.py:26
+msgid "status"
+msgstr "Статус"
+
+#: task_manager/task/models.py:27
+msgid "description"
+msgstr "Описание"
+
+#: task_manager/task/models.py:33
+msgid "labels"
+msgstr "Метки"
+
 #: task_manager/task/views.py:20
 msgid "creator"
 msgstr "Создатель"
@@ -56,11 +85,11 @@ msgstr "Только свои задачи"
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/task/views.py:56
+#: task_manager/task/views.py:54
 msgid "You are create new tasks"
 msgstr "Задача успешно создана"
 
-#: task_manager/task/views.py:69
+#: task_manager/task/views.py:68
 msgid "You are update task"
 msgstr "Задача успешно изменена"
 
@@ -109,7 +138,7 @@ msgstr "Мой"
 msgid "Hexlet training project"
 msgstr "Учебный проект Хекслет"
 
-#: task_manager/templates/label/labels_create.html:12
+#: task_manager/templates/label/labels_create.html:11
 #: task_manager/templates/status/statuses_create.html:12
 #: task_manager/templates/task/task_create.html:12
 msgid "Create"
@@ -208,47 +237,22 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/users/models.py:14 task_manager/users/models.py:21
-#: task_manager/users/models.py:28
-msgid "name"
-msgstr "Имя"
-
-#: task_manager/users/models.py:29
-msgid "author"
-msgstr "Автор"
-
-#: task_manager/users/models.py:30
-msgid "executor"
-msgstr "Исполнитель"
-
-#: task_manager/users/models.py:31
-msgid "status"
-msgstr "Статус"
-
-#: task_manager/users/models.py:32
-msgid "description"
-msgstr "Описание"
-
-#: task_manager/users/models.py:35
-msgid "labels"
-msgstr "Метки"
-
-#: task_manager/users/views.py:29
+#: task_manager/users/views.py:27
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:39
+#: task_manager/users/views.py:37
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменён"
 
-#: task_manager/users/views.py:55
+#: task_manager/users/views.py:46
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удалён"
 
-#: task_manager/views.py:16
+#: task_manager/views.py:11
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:20
+#: task_manager/views.py:17
 msgid "You are logged out"
 msgstr "Вы разлогинены"
