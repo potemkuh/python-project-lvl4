@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import rollbar
 from django.urls import reverse_lazy
 import os
 import dj_database_url
