@@ -47,7 +47,7 @@ class StatusDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return reverse('statuses')
 
     def delete(self, request, *args, **kwargs):
-        if self.get_object().labels.all().exists():
+        if self.get_object().status.all().exists():
             messages.error(self.request, _('Unable to delete status because it is in use'))
             return redirect('statuses')
         messages.success(self.request, _('Status successfully deleted'))

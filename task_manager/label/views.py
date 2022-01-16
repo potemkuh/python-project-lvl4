@@ -51,7 +51,7 @@ class LabelsDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return reverse('labels')
 
     def delete(self, request, *args, **kwargs):
-        if self.get_object().labels.all().exists():
+        if self.get_object().label.all().exists():
             messages.error(self.request, _('Unable to delete label because it is in use'))
             return redirect('labels')
         messages.success(self.request, _('Label successfully deleted'))

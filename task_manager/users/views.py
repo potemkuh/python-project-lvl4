@@ -33,7 +33,8 @@ class CreateUser(SuccessMessageMixin, CreateView):
         return reverse('login')
 
 
-class EditUser(SuccessMessageMixin, LoginRequiredMixin, CheckUserForDelMixin, UpdateView):
+class EditUser(LoginRequiredMixin, CheckUserForDelMixin,
+               SuccessMessageMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
     form_class = UserForm
@@ -49,10 +50,11 @@ class EditUser(SuccessMessageMixin, LoginRequiredMixin, CheckUserForDelMixin, Up
         return redirect(self.permission_denied_url)
 
 
-class DelUser(SuccessMessageDeleteMixin, LoginRequiredMixin, CheckUserForDelMixin, DeleteView):
+class DelUser(LoginRequiredMixin, CheckUserForDelMixin,
+              SuccessMessageMixin, DeleteView):
     model = get_user_model()
     template_name = 'users/delete_user.html'
-    success_message = _('User successfully deleted')
+    success_message = _('User deleted')
     permission_denied_url = reverse_lazy('users')
     permission_denied_message = _('You do not have permission to modify another user.')
 
