@@ -1,6 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import CreateView, ListView
 from django.urls import reverse
+from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.label.models import Label
@@ -50,5 +51,8 @@ class LabelsDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return reverse('labels')
 
     def delete(self, request, *args, **kwargs):
+        if self.get_object().labels.all().exists():
+            messages.error(self.request, _('Unable to delete label because it is in use'))
+            return redirect('labels')
         messages.success(self.request, _('Label successfully deleted'))
         return super().delete(request, *args, **kwargs)

@@ -1,41 +1,15 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import CreateView
 from django.urls import reverse
+from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.task.models import Task
-from task_manager.label.models import Label
 from task_manager.task.forms import TaskForm
+from task_manager.task.filter import TaskFilter
 from django_filters.views import FilterView
-from django_filters import FilterSet
-from django_filters.filters import BooleanFilter, ModelChoiceFilter
-from django import forms
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-
-
-class TaskFilter(FilterSet):
-    self_tasks = BooleanFilter(
-        widget=forms.CheckboxInput,
-        field_name=_('creator'),
-        method='filter_self_tasks',
-        label=_('Only their own tasks'),
-    )
-
-    label = ModelChoiceFilter(
-        queryset=Label.objects.all(),
-        field_name='labels',
-        label=_('Label'),
-    )
-
-    def filter_self_tasks(self, queryset, name, value):
-        if value:
-            return queryset.filter(author=self.request.user)
-        return queryset
-
-    class Meta:
-        model = Task
-        fields = ['status', 'executor', 'author', 'label', 'self_tasks']
 
 
 class TaskList(LoginRequiredMixin, FilterView):
@@ -80,5 +54,8 @@ class TaskDelete(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return reverse('tasks')
 
     def delete(self, request, *args, **kwargs):
+        if self.get_object().author != request.user:
+            messages.error(self.request, _('Unable to delete task because this task created not you'))
+            return redirect('tasks')
         messages.success(self.request, _('Task successfully deleted'))
         return super().delete(request, *args, **kwargs)
