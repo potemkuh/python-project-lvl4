@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.forms import UserForm
-from task_manager.users.mixins import SuccessMessageDeleteMixin, CheckUserForDelMixin
+from task_manager.users.mixins import CheckUserForDelMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
