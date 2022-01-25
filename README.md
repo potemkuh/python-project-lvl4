@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/15cded7c44ba937ad39f/maintainability)](https://codeclimate.com/github/potemkuh/python-project-lvl4/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/15cded7c44ba937ad39f/test_coverage)](https://codeclimate.com/github/potemkuh/python-project-lvl4/test_coverage)
 
-Проект развернут на Heroku: https://thawing-reaches-90961.herokuapp.com/
+Проект развернут на Heroku: https://desolate-journey-28573.herokuapp.com/
 
 ### Функциональные возможности
 - Приложение настроено на работу с базой данных PostgreSQL;
