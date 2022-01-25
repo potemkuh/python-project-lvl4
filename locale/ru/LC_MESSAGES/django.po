@@ -43,7 +43,7 @@ msgstr "Метка успешно удалена"
 
 #: task_manager/label/views.py:55
 msgid "Невозможно удалить метку, так как она используется"
-msgstr ""
+msgstr "Невозможно удалить метку, так как он используется"
 
 #: task_manager/status/views.py:25
 msgid "You are create new status"
