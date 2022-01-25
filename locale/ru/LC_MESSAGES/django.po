@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-25 19:43+0300\n"
+"POT-Creation-Date: 2022-01-25 21:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "Label successfully deleted"
 msgstr "Метка успешно удалена"
 
 #: task_manager/label/views.py:55
-msgid "Невозможно удалить метку, так как она используется"
+msgid "Unable to delete label because it is in use"
 msgstr "Невозможно удалить метку, так как он используется"
 
 #: task_manager/status/views.py:25
@@ -253,6 +253,10 @@ msgstr "Полное имя"
 msgid "You do not have permission to delete another user."
 msgstr "У вас нет разрешения на удаление другого пользователя"
 
+#: task_manager/users/mixins.py:35 task_manager/users/views.py:43
+msgid "You do not have permission to modify another user."
+msgstr "У вас нет разрешения на изменение другого пользователя"
+
 #: task_manager/users/views.py:30
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
@@ -260,10 +264,6 @@ msgstr "Пользователь успешно зарегистрирован"
 #: task_manager/users/views.py:41
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменён"
-
-#: task_manager/users/views.py:43
-msgid "You do not have permission to modify another user."
-msgstr "У вас нет разрешения на изменение другого пользователя"
 
 #: task_manager/users/views.py:57 task_manager/users/views.py:74
 msgid "User deleted"
