@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from task_manager.users.forms import UserForm
-from task_manager.users.mixins import CheckUserForDelMixin
+from task_manager.users.mixins import CheckUserForDelMixin, CheckUserForEditMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -33,7 +33,7 @@ class CreateUser(SuccessMessageMixin, CreateView):
         return reverse('login')
 
 
-class EditUser(LoginRequiredMixin, CheckUserForDelMixin,
+class EditUser(LoginRequiredMixin, CheckUserForEditMixin,
                SuccessMessageMixin, UpdateView):
     model = get_user_model()
     template_name = 'users/edit_user.html'
@@ -56,7 +56,7 @@ class DelUser(LoginRequiredMixin, CheckUserForDelMixin,
     template_name = 'users/delete_user.html'
     success_message = _('User deleted')
     permission_denied_url = reverse_lazy('users')
-    permission_denied_message = _('You do not have permission to modify another user.')
+    permission_denied_message = _('You do not have permission to delete another user.')
 
     def get_success_url(self):
         return reverse('users')
